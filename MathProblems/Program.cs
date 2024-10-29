@@ -408,7 +408,7 @@ namespace MathProblems
                     int sum = 0;
                     for (int i = 0; i < 12; i++)
                     {
-                        int multiplier = (i % 2 == 0) ? 1 : 3; // X each digit by either 1 or 3 (odd or even).
+                        int multiplier = (i % 2 == 0) ? 1 : 3; // X each digit by 1 or 3 (odd or even).
                         sum += (input[i] - '0') * multiplier;
                     }
 
@@ -763,7 +763,7 @@ namespace MathProblems
             }
         }
 
-        private static void RSADecode() // Decodes a single character using RSA
+        private static void RSADecode() // still only one character! Fix me before test.
         {
             while (true)
             {
@@ -801,7 +801,6 @@ namespace MathProblems
 
                 int encodedValue = input[0] - 'A' + 1;
 
-                // Perform modular exponentiation to calculate (encodedValue^d) % n
                 int decodedValue = 1;
                 for (int i = 0; i < d; i++)
                 {
