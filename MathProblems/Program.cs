@@ -33,6 +33,7 @@ namespace MathProblems
                 Console.WriteLine("15. RSA Decode");
                 Console.WriteLine("16. Exit");
 
+
                 string menuInput = Console.ReadLine().ToLower();
 
                 switch (menuInput)
@@ -256,15 +257,60 @@ namespace MathProblems
 
         public static void LCM()
         {
-            Console.Clear();
-            Console.WriteLine("You launched LCM.");
-            Thread.Sleep(1000);
+            // Sequence seed, a, c, m. 
+            //Create an empty list to store the sequence. 
+            //set currentValue to seed.
+            //While currentValue is not in the list:
+            // append currentValue to the list
+            //Calc nextValue (A* currentValue +C) mod M
+            //Current value = nextValue
+            //Return the list.
+
+            // Xn+1 = (A x Xn + C) Mod M
+            
+
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Gib seed (or type 'exit' to return to the menu):");
+                string seedInput = Console.ReadLine();
+                if (seedInput.ToLower() == "exit") break;
+                if (!int.TryParse(seedInput, out int seed))
+                {
+                    Console.WriteLine("Invalid input. Please enter a number for the seed.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
+                Console.WriteLine("Enter the multiplier (a):");
+                if (!int.TryParse(Console.ReadLine(), out int a))
+                {
+                    Console.WriteLine("Gib multiplier.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                Console.WriteLine("Gib increment (c):");
+                if (!int.TryParse(Console.ReadLine(), out int c))
+                {
+                    Console.WriteLine("Invalid input. Please enter a number for the increment.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                Console.WriteLine("Gib modulus (m):");
+                if (!int.TryParse(Console.ReadLine(), out int m) || m <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please enter a positive number for the modulus.");
+                    Thread.Sleep(1000);
+                    continue;
+                }
+            }
         }
 
         public static void Mods()
         {
             Console.Clear();
-            Console.WriteLine("You launched Mods.");
+            Console.WriteLine("You launched Mods....That is all..");
             Thread.Sleep(1000);
         }
         private static void Divisibility()
