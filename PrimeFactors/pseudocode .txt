@@ -1,0 +1,15 @@
+Start
+input = number.
+CW "Prime factorization of [number] is: ".
+While number is divisible by 2:
+        Print "2".
+        Divide number by 2.
+Initialize divisor as 3.
+While divisor squared is less than or equal to number:
+    While number is divisible by divisor:
+        Print divisor.
+        Divide number by divisor.
+    Increment divisor by 2.
+If number is greater than 1:
+    Print number (remaining prime factor).
+End

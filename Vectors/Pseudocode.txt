@@ -1,0 +1,32 @@
+Length of a Vector
+Take the components of the vector (x, y, z) as input.
+Calculate the length using the formula:
+length = sqrt(x^2 + y^2 + z^2)
+Output the length.
+
+Scalar Multiplication of a Vector
+Take the components of the vector (x, y, z) as input.
+Take the scalar value as input.
+Multiply each component of the vector by the scalar:
+new_x = x * scalar
+new_y = y * scalar
+new_z = z * scalar
+Output the new vector: ([new_x], [new_y], [new_z]).
+
+Addition of Two Vectors
+Take the components of the first vector (x1, y1, z1) as input.
+Take the components of the second vector (x2, y2, z2) as input.
+Add the corresponding components:
+result_x = x1 + x2
+result_y = y1 + y2
+result_z = z1 + z2
+Output the resulting vector: ([result_x], [result_y], [result_z]).
+
+Subtraction of Two Vectors
+Take the components of the first vector (x1, y1, z1) as input.
+Take the components of the second vector (x2, y2, z2) as input.
+Subtract the corresponding components:
+result_x = x1 - x2
+result_y = y1 - y2
+result_z = z1 - z2
+Output the resulting vector: ([result_x], [result_y], [result_z]).
