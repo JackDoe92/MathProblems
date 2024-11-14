@@ -4,59 +4,38 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Goodbye, World!");
-            PrimeFactorization();
-        }
-        public static void PrimeFactorization()
-        {
-            while (true)
+            Console.WriteLine("Enter a number for prime factorization: ");
+            int input = int.Parse(Console.ReadLine());
+            Console.Write($"\nPrime factorization of {input} is: ");
+
+            //**************************************************************//
+
+
+            while (input % 2 == 0) // check if divisible by 2 (Only even prime)
             {
-                Console.Clear();
-                Console.WriteLine("Enter a number for prime factorization (or type 'exit' to return to the menu): ");
-                string input = Console.ReadLine().ToLower();
-
-                if (input == "exit")
-                {
-                    break;
-                }
-
-                if (!int.TryParse(input, out int number) || number < 1) //check for valid input
-                {
-                    Console.WriteLine("Invalid input. Please enter a positive whole number.");
-                    Thread.Sleep(1000);
-                    continue;
-                }
-
-                Console.Write($"\nPrime factorization of {number} is: ");
-
-                while (number % 2 == 0) //hardcode for 2
-                {
-                    Console.Write("2 ");
-                    number /= 2;
-                }
-
-                int divisor = 3;
-                while (divisor * divisor <= number) // check up to square root of number (big brain)
-                {
-                    while (number % divisor == 0)
-                    {
-                        Console.Write(divisor + " ");
-                        number /= divisor;
-                    }
-                    divisor += 2; //  next odd number
-                }
-
-                if (number > 1)
-                {
-                    Console.Write(number);
-                }
-
-                Console.WriteLine("\n\nPress any key to factorize another number or type 'exit' to return to the menu.");
-                if (Console.ReadLine().ToLower() == "exit")
-                {
-                    break;
-                }
+                Console.Write("2 ");
+                input /= 2;
             }
+
+            //**************************************************************//
+
+            int divisor = 3; // start at 3 (first odd prime)
+            while (divisor * divisor <= input) // Check all numbers for divisability from 3 to the square root of input
+            {
+                while (input % divisor == 0)
+                {
+                    Console.Write(divisor + " ");
+                    input /= divisor;
+                }
+                divisor += 2; // Skip even numbers
+            }
+            //**************************************************************//
+
+            if (input > 1) // If there's any remaining prime factor
+            {
+                Console.Write(input);
+            }
+            Console.ReadLine();
         }
     }
 }

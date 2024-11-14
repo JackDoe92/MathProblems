@@ -1,74 +1,86 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace LogicGates
+﻿namespace LogicGates
 {
     internal class Program
-
     {
+        public static int input1;
+        public static int input2;
+
         static void Main(string[] args)
         {
-            int num1;
-            int num2;
-            int menuInput;
-            string checkInput;
+            Console.WriteLine("Please provide the first input: ");
+            input1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please provide the second input: ");
+            input2 = int.Parse(Console.ReadLine());
 
-            while (true)
-            {
-                Console.WriteLine("Please enter the first number");
-                num1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Please enter the second number");
-                num2 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Please confirm the following inputs:");
-                Console.WriteLine($"Num1 = {num1}");
-                Console.WriteLine($"num2 - {num2}");
-                Console.WriteLine("Y/N...");
-                checkInput = Console.ReadLine();
+            Console.WriteLine("Which gate logic do you wish to use?");
+            Console.WriteLine("1. AND gate");
+            Console.WriteLine("2. OR gate");
+            Console.WriteLine("3. NAND gate");
+            Console.WriteLine("4. NOR gate");
+            Console.WriteLine("5. XOR gate");
+            Console.WriteLine("6. XNOR gate");
+            int menuChoice = int.Parse(Console.ReadLine());
 
-                if (checkInput == "y")
-                {
-                    break;
-                }
-                if (checkInput == "n")
-                {
-                    Console.WriteLine("Restarting..");
-                    Thread.Sleep(2000);
-                }
-            }
-
-            Console.WriteLine("Which logic gate do you want to use?");
-            Console.WriteLine("1. AND (A · B)");
-            Console.WriteLine("2. OR (A + B)");
-            Console.WriteLine("3. NOT (¬A or A’)");
-            Console.WriteLine("4. NANA ((A · B)')");
-            Console.WriteLine("5. NOR");
-            Console.WriteLine("6. XOR");
-            Console.WriteLine("7. XNOR");
-
-            menuInput = Convert.ToInt32(Console.ReadLine());
-
-            switch (menuInput)
+            switch (menuChoice)
             {
                 case 1:
-                    And(num1,num2);
+                    AND(input1, input2);
+                    break;
+                case 2:
+                    OR(input1, input2);
+                    break;
+                case 3:
+                    NAND(input1, input2);
+                    break;
+                case 4:
+                    NOR(input1, input2);
+                    break;
+                case 5:
+                    XOR(input1, input2);
+                    break;
+                case 6:
+                    XNOR(input1, input2);
+                    break;
+                default:
+                    Console.WriteLine("Invalid input");
                     break;
             }
         }
 
-        public static void And(int num1, int num2)
+        public static void AND(int input1, int input2)
         {
-            if (num1 == 1 && num2 == 1)
-            {
-                Console.WriteLine($"AND Gate input: {num1} & {num2}");
-                Console.WriteLine("AND Gate output: 1");
-            }
-            else
-            {
-                Console.WriteLine($"AND Gate input: {num1} & {num2}");
+            int output = input1 & input2;
+            Console.WriteLine($"AND gate output: {output}");
+        }
 
-                Console.WriteLine($"AND Gate output: 0");
+        public static void OR(int input1, int input2)
+        {
+            int output = input1 | input2;
+            Console.WriteLine($"OR gate output: {output}");
+        }
 
-            }
+        public static void NAND(int input1, int input2)
+        {
+            int output = ~(input1 & input2) & 1;
+            Console.WriteLine($"NAND gate output: {output}");
+        }
 
+        public static void NOR(int input1, int input2)
+        {
+            int output = ~(input1 | input2) & 1;
+            Console.WriteLine($"NOR gate output: {output}");
+        }
+
+        public static void XOR(int input1, int input2)
+        {
+            int output = input1 ^ input2;
+            Console.WriteLine($"XOR gate output: {output}");
+        }
+
+        public static void XNOR(int input1, int input2)
+        {
+            int output = ~(input1 ^ input2) & 1;
+            Console.WriteLine($"XNOR gate output: {output}");
         }
     }
 }

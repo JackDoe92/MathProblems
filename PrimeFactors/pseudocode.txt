@@ -1,0 +1,14 @@
+Ask for input. 
+
+Loop1
+While the input mod 2 is 0, print 2.
+---------------------------------------
+Loop2
+Start with divisor = 3.
+While the squareroot of the divisor is less than or equal to the number:
+- If the number is divisible by the divisor, print the divisor and divide the number by it.
+Repeat this until the number is no longer divisible by the divisor.
+Move to the next odd number (increment divisor by 2).
+----------------------------------------
+Loop3
+If the number is greater than 1 after the loop, print the number (it is prime)
